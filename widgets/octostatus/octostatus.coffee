@@ -13,4 +13,4 @@ class Dashing.Octostatus extends Dashing.Widget
     setInterval @update, (@get('interval') || 15) * 1000
 
   update: =>
-    $.getJSON("https://status.github.com/api/last-message.json?callback=?", @receiveData)
+    $.getJSON("https://kctbh9vrtdwd.statuspage.io/api/v2/status.json", @receiveData)
