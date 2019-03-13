@@ -9,7 +9,7 @@ prog_languages = [
 ]
 prog_lang_counts = Hash.new({ value: 0 })
 
-SCHEDULER.every '180s' do
+SCHEDULER.every '30s' do
   prog_languages.each do |prog_language|
     prog_lang_counts[prog_language[0]] = {
       label: prog_language[0],

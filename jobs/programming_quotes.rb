@@ -10,6 +10,6 @@ programming_quotes = [
 ]
 
 
-SCHEDULER.every '10s' do
+SCHEDULER.every '30s' do
   send_event('programming_quotes', comments: programming_quotes )
 end
