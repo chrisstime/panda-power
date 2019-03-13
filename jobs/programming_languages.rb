@@ -1,13 +1,20 @@
 prog_languages = [
-  { label: 'Ruby on Rails', value: 80},
-  { label: 'CoffeeScript', value: 20},
-  { label: 'Javascript ', value: 10},
-  { label: 'Python', value: 30},
-  { label: 'HTML', value: 40},
-  { label: 'CSS', value: 20},
-  { label: 'Sass', value: 20}
+  ['Ruby on Rails', '80%'],
+  %w[CoffeeScript 20%],
+  %w[Javascript 10%],
+  %w[Python 30%],
+  %w[HTML 40%],
+  %w[CSS 20%],
+  %w[Sass 20%]
 ]
+prog_lang_counts = Hash.new({ value: 0 })
 
-SCHEDULER.every '2s' do
-  send_event('programming_languages', items: prog_languages.values)
+SCHEDULER.every '180s' do
+  prog_languages.each do |prog_language|
+    prog_lang_counts[prog_language[0]] = {
+      label: prog_language[0],
+      value: prog_language[1]
+    }
+    send_event('programming_languages', { items: prog_lang_counts.values } )
+  end
 end

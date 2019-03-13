@@ -5,7 +5,7 @@ SCHEDULER.every '30s' do
   last_valuation = current_valuation
   last_karma     = current_karma
   current_valuation = rand(100)
-  current_karma     = rand(20000)
+  current_karma     = rand(180)
 
   send_event('valuation', current: current_valuation, last: last_valuation)
   send_event('karma', current: current_karma, last: last_karma)
